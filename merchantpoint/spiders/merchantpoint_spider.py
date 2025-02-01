@@ -14,6 +14,8 @@ class MerchantpointItem(scrapy.Item):
 class MerchantSpider(scrapy.Spider):
     name = "merchant"
     allowed_domains = ["merchantpoint.ru"]
+    # Это я вручную нашел номера страниц с брендами у которых есть лого
+    # (в sitemaps у меня в браузере было много пустых страниц, поэтому я сделал такой костыль) :)
     start_urls = [f"https://merchantpoint.ru/brands/{i}" for i in range(64, 485)]
 
     def parse(self, response, **kwargs):
